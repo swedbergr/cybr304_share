@@ -9,20 +9,14 @@ for row in range(1,3):
     # Add entire row to matrix A
     A.append(single_row)
 
-# Create 2D lists for X, Lambda, and X inverse
-x_regular = [[0,0],[0,0]]
-Lambda = [[0,0],[0,0]]
-x_inverse = [[0,0],[0,0]]
+# Get elements of vector b
+b = []
+b.append(int(input("b11: ")))
+b.append(int(input("b21: ")))
+
+# TODO
+solution = []
 
 
-
-
-# YOUR CODE HERE
-
-
-
-
-
-
-
-print(f"{A}={x_regular} * {Lambda} * {x_inverse}")
+# Output solution
+print(solution)
