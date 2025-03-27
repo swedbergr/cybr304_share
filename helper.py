@@ -35,7 +35,7 @@ def calcEigenvalues(A):
     return: list of eigenvalues in desending order
     '''
     eigenvalues, Eigenvectors = np.linalg.eig(A)
-    return sorted(eigenvalues)
+    return np.sort(eigenvalues)[::-1]
 
 
 def calcEigenvectors(A):
@@ -45,7 +45,13 @@ def calcEigenvectors(A):
     return: orthogonal matrix of eigenvalues
     '''
     eigenvalues, eigenvectors = np.linalg.eig(A)
-    return eigenvectors
+    sorted_eigenvalues = np.sort(eigenvalues)[::-1]
+    sorted_eigenvectors = []
+    # Get index values for eigenvectors from unsorted eigenvalues vector
+    for num in sorted_eigenvalues:
+        index = np.argmax(eigenvalues == num)
+        sorted_eigenvectors.append(transpose(eigenvectors)[index])
+    return np.array(sorted_eigenvectors)
 
 
 def calcSigma(A, eigenvalues):
