@@ -1,18 +1,18 @@
-# Define the function below to verify that the equation has a solution and solves the equation (if possible)
-# You may copy and paste functions from previous assignments to make calls in this function.
-def solve(matrix1, matrix2):
+# Define the function below to factor a matrix into A=LU
+def factorLU(matrix):
     '''
-    Function takes two 2D square lists, verifies a solution is possible, and computes the solution
-    to the matrix equation that is in the form matrix1 * X = matrix2
-    @param matrix1: 2D list of numeric data
-    @param matrix2: 2D list of numeric data
-    @return: 2D list of numeric data or alert if solution not possible
+    Function takes a 2D square list and creates a L and U matrix such that
+    A=LU.
+    @param matrix: 2D list of numeric data
+    @return: 2D list representing L
+    @return: 2D list representing U
     '''
     pass    
 
 def get_matrix():
     # Get rows and columns from user
-    rows = int(input("Enter the number of rows and columns: "))
+    rows = int(input("Enter the number of rows: "))
+    columns = int(input("Enter the number of columns: "))
 
     # Create empty list to store matrix values
     matrix = []
@@ -36,21 +36,13 @@ def main():
     '''
     Main function for the program.
     '''
-    # Get matrix1 values
-    print("Complete information for the coefficient matrix.")
-    matrix1 = get_matrix()
-
-    # Get matrix2 values
-    print("Complete information for the solution matrix.")
-    matrix2 = get_matrix()
-
-    # Display equation
-    print(f"{matrix1} * X = {matrix2}")
+    # Get matrix values
+    matrix = get_matrix()
 
     # Get product
-    solution = solve(matrix1, matrix2)
+    matrixL, matrixU = factorLU(matrix)
 
-    print(f"X = {solution}")
+    print(f"{matrix} = {matrixL} * {matrixU}")
 
 
 if __name__ == "__main__":
