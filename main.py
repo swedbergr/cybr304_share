@@ -1,48 +1,41 @@
-# Define the function below to factor a matrix into A=LU
-def factorLU(matrix):
-    '''
-    Function takes a 2D square list and creates a L and U matrix such that
-    A=LU.
-    @param matrix: 2D list of numeric data
-    @return: 2D list representing L
-    @return: 2D list representing U
-    '''
-    pass    
-
-def get_matrix():
-    # Get rows and columns from user
-    rows = int(input("Enter the number of rows: "))
-    columns = int(input("Enter the number of columns: "))
-
-    # Create empty list to store matrix values
-    matrix = []
-
-    # Iterate over rows and columns to fill matrix
-    for r in range(rows):
-        # Create empty list to store each row
-        row_list = []
-        for c in range(rows):
-            # Get the value for the matrix position and append it to the row
-            value = int(input(f"Enter the value for element {r+1}, {c+1}: "))
-            row_list.append(value)
-        
-        # Append entire row to matrix
-        matrix.append(row_list)
-    
-    # Return matrix
-    return matrix
-
 def main():
-    '''
-    Main function for the program.
-    '''
-    # Get matrix values
-    matrix = get_matrix()
+    """
+    Main function
+    """
+    pass
 
-    # Get product
-    matrixL, matrixU = factorLU(matrix)
 
-    print(f"{matrix} = {matrixL} * {matrixU}")
+def readData():
+    """
+    Function reads data from a text file and returns the values as floats in a
+    2D list.
+    :return: 2D list of floats
+    """
+    # Set placeholder for data matrix
+    data = []
+    with open("data.txt", "r") as infile:
+        # Get raw string for first line
+        raw_line = infile.readline()
+        # Iterate as long as a string line exists
+        while raw_line != "":
+            # Convert string to list by removing \n and splitting at the comma
+            raw_list = raw_line.rstrip().split(",")
+            data_line = []
+
+            # Iterate over list of strings
+            for element in raw_list:
+                # Cast data value to a float
+                data_line.append(float(element))
+
+            # Append list of float data values to data matrix
+            data.append(data_line)
+
+            # Read the next string line
+            raw_line = infile.readline()
+
+    # Return completed 2D list for data matrix
+    return data
+
 
 
 if __name__ == "__main__":
